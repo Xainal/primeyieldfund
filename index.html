@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeYield Fund (PYF) — Solana Token Presale</title>
+  <meta name="description" content="PrimeYield Fund (PYF) is a Solana community token inspired by real-world productive businesses. Transparent, growth-driven, and presale-ready through Gempad." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg2:#0f1a33;
+      --card:#0e1a2f;
+      --line:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.88);
+      --muted:rgba(255,255,255,.66);
+      --brand:#4ade80;
+      --brand2:#fbbf24;
+      --blue:#60a5fa;
+      --danger:#fb7185;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1000px 500px at 10% 10%, rgba(96,165,250,.18), transparent 55%),
+                  radial-gradient(900px 480px at 90% 20%, rgba(74,222,128,.16), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .inner{max-width:var(--max); margin:0 auto; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .dot{width:10px; height:10px; border-radius:99px; background: linear-gradient(135deg, var(--brand), var(--blue)); box-shadow: 0 0 0 4px rgba(74,222,128,.12);}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .navlinks a{color:var(--muted); font-size:13px; padding:8px 10px; border-radius:12px; border:1px solid transparent}
+    .navlinks a:hover{color:var(--text); border-color: var(--line); background: rgba(255,255,255,.04)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px; border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text); font-weight:700;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(74,222,128,.95), rgba(96,165,250,.95));
+      color:#07121f;
+      border-color: transparent;
+      box-shadow: 0 12px 34px rgba(74,222,128,.20);
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+    .btn.gold{
+      background: linear-gradient(135deg, rgba(251,191,36,.95), rgba(96,165,250,.85));
+      color:#081426; border-color: transparent;
+      box-shadow: 0 12px 34px rgba(251,191,36,.18);
+    }
+
+    /* HERO */
+    .hero{
+      padding:36px 0 14px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr; padding-top:20px}
+    }
+    .card{
+      background: rgba(14,26,47,.70);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroMain{padding:26px 22px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-size:12px; font-weight:800;
+      color: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius: 999px;
+    }
+    .pill{
+      background: rgba(74,222,128,.12);
+      color: rgba(74,222,128,.95);
+      border:1px solid rgba(74,222,128,.25);
+      padding:4px 8px;
+      border-radius: 999px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:44px; line-height:1.06;
+      letter-spacing:-.7px;
+    }
+    @media (max-width:520px){h1{font-size:34px}}
+    .sub{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      margin:0 0 16px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width:720px){.grid2{grid-template-columns:1fr}}
+    .miniCard{padding:16px 16px}
+    .miniTitle{font-weight:900; margin:0 0 6px}
+    .miniText{color:var(--muted); font-size:13px; line-height:1.55; margin:0}
+
+    /* HERO SIDE */
+    .heroSide{padding:18px}
+    .sideTop{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+    .badge{
+      font-size:12px; font-weight:900; color:rgba(255,255,255,.84);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    .kv{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:12px}
+    .kv .item{
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(255,255,255,.03);
+    }
+    .kv .k{font-size:11px; color:var(--muted); font-weight:800; letter-spacing:.2px}
+    .kv .v{margin-top:6px; font-weight:900; font-size:14px}
+    .hr{height:1px; background: var(--line); margin:12px 0}
+    .note{
+      font-size:12px; color: rgba(255,255,255,.62);
+      line-height:1.6;
+      margin:10px 0 0;
+    }
+    .input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size:13px;
+      outline:none;
+    }
+
+    /* Sections */
+    section{margin-top:22px}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin:0 0 12px}
+    .sectionHead h2{margin:0; font-size:22px}
+    .sectionHead p{margin:0; color:var(--muted); font-size:13px}
+    .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:12px}
+    @media (max-width:920px){.cards{grid-template-columns:1fr}}
+    .cardPad{padding:18px}
+
+    .icon{
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      margin-bottom:10px;
+      font-weight:900;
+    }
+
+    .twoCol{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width:920px){.twoCol{grid-template-columns:1fr}}
+
+    table{
+      width:100%; border-collapse:separate; border-spacing:0;
+      border-radius: 16px; overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    th,td{padding:12px; text-align:left; font-size:13px}
+    th{color: rgba(255,255,255,.78); background: rgba(255,255,255,.04)}
+    td{color:var(--muted); border-top:1px solid var(--line)}
+
+    .tag{
+      display:inline-flex; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.78);
+      font-size:12px; font-weight:800;
+    }
+
+    .faq details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:12px 14px;
+    }
+    .faq details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:900}
+    summary::-webkit-details-marker{display:none}
+    .faq p{margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.65}
+
+    .footer{
+      margin-top:26px;
+      padding:18px;
+      border-top:1px solid var(--line);
+      color: rgba(255,255,255,.60);
+      font-size:12px;
+      line-height:1.65;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand"><span class="dot"></span>PrimeYield Fund <span class="small">(PYF)</span></div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#presale">Presale</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn primary" href="#links">Join</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="card heroMain">
+        <div class="kicker">
+          <span class="pill">SOLANA</span>
+          <span>Community token powered by real-world productivity</span>
+        </div>
+
+        <h1>PrimeYield Fund (PYF)</h1>
+        <p class="sub">
+          A community-driven Solana token inspired by real productive businesses:
+          <b>dump truck operations</b>, <b>daily vegetable trading</b>, and <b>micro-lending</b>.
+          Built on transparency, growth, and execution — with <b>no guaranteed profit or returns</b>.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="REPLACE_GEMPAD_PRESALE_LINK" target="_blank">🚀 Presale on Gempad</a>
+          <a class="btn gold" href="REPLACE_TELEGRAM_LINK" target="_blank">💬 Join Telegram</a>
+          <a class="btn" href="REPLACE_TWITTER_LINK" target="_blank">𝕏 Follow Twitter</a>
+        </div>
+
+        <div class="grid2" style="margin-top:16px">
+          <div class="miniCard card">
+            <p class="miniTitle">✅ Trust-first Setup</p>
+            <p class="miniText">Mint & freeze authorities can be disabled to increase holder confidence.</p>
+          </div>
+          <div class="miniCard card">
+            <p class="miniTitle">🔒 Liquidity Lock</p>
+            <p class="miniText">A portion of presale funds will be locked into liquidity for stable trading.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDE -->
+      <div class="card heroSide">
+        <div class="sideTop">
+          <span class="badge">📌 Quick Facts</span>
+          <span class="tag">Ticker: <b>PYF</b></span>
+        </div>
+
+        <div class="kv">
+          <div class="item"><div class="k">Network</div><div class="v">Solana</div></div>
+          <div class="item"><div class="k">Presale</div><div class="v">Gempad</div></div>
+          <div class="item"><div class="k">Total Supply</div><div class="v">1,000,000,000</div></div>
+          <div class="item"><div class="k">Decimals</div><div class="v">9</div></div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="note">
+          Tip: paste your Mint Address here so holders can easily copy it.
+        </div>
+
+        <div class="copyRow" style="margin-top:12px">
+          <input id="mint" class="input" placeholder="Paste Mint Address (example: 9x...abc)" />
+          <button class="btn" onclick="copyMint()">Copy</button>
+        </div>
+
+        <p class="note" id="copyStatus"></p>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sectionHead">
+        <div><h2>About PYF</h2><p>Why PrimeYield Fund was created.</p></div>
+        <span class="tag">Real-world narrative</span>
+      </div>
+
+      <div class="cards">
+        <div class="card cardPad">
+          <div class="icon">🚛</div>
+          <h3>Dump Truck Operation</h3>
+          <p>A stable, real business with daily activity, representing productivity and infrastructure growth.</p>
+        </div>
+        <div class="card cardPad">
+          <div class="icon">🥬</div>
+          <h3>Daily Vegetable Trading</h3>
+          <p>A fast-turnover business with constant demand — the basis for the “yield” narrative.</p>
+        </div>
+        <div class="card cardPad">
+          <div class="icon">💸</div>
+          <h3>Micro-Lending</h3>
+          <p>Productive capital that helps small economic activity grow responsibly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESALE -->
+    <section id="presale">
+      <div class="sectionHead">
+        <div><h2>Presale (Gempad)</h2><p>Clear, transparent, and investor-friendly structure.</p></div>
+        <a class="btn primary" href="REPLACE_GEMPAD_PRESALE_LINK" target="_blank">Open Presale</a>
+      </div>
+
+      <div class="twoCol">
+        <div class="card cardPad">
+          <h3>Presale Parameters</h3>
+          <table>
+            <tr><th>Item</th><th>Value</th></tr>
+            <tr><td>Softcap</td><td><b>120 SOL</b> (example)</td></tr>
+            <tr><td>Hardcap</td><td><b>300 SOL</b> (example)</td></tr>
+            <tr><td>Presale Price</td><td>1 SOL = <b>3,000,000 PYF</b></td></tr>
+            <tr><td>Listing Price</td><td>1 SOL = <b>2,400,000 PYF</b></td></tr>
+            <tr><td>Liquidity Allocation</td><td><b>60–70%</b> of raised SOL</td></tr>
+            <tr><td>Liquidity Lock</td><td><b>90–180 days</b></td></tr>
+          </table>
+          <p class="note">These values can be adjusted based on your final strategy.</p>
+        </div>
+
+        <div class="card cardPad">
+          <h3>How Presale Works</h3>
+          <p class="miniText">
+            <b>Softcap</b> is the minimum amount of SOL required for a successful presale.
+            If not reached, funds are usually refunded.
+            Once successful, a portion of SOL is added to <b>Liquidity Pool</b> for DEX listing.
+          </p>
+
+          <div class="hr"></div>
+
+          <div class="note">
+            <b>Important:</b> Presale funds may be used for operations & development,
+            <b>but no guaranteed profit or returns should be promised.</b>
+          </div>
+
+          <div class="ctaRow" style="margin-top:12px">
+            <a class="btn gold" href="REPLACE_TELEGRAM_LINK" target="_blank">Join Telegram</a>
+            <a class="btn" href="#tokenomics">View Tokenomics</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section id="tokenomics">
+      <div class="sectionHead">
+        <div><h2>Tokenomics</h2><p>Simple and transparent distribution.</p></div>
+        <span class="tag">Total Supply: 1,000,000,000 PYF</span>
+      </div>
+
+      <div class="twoCol">
+        <div class="card cardPad">
+          <h3>Allocation</h3>
+          <table>
+            <tr><th>Category</th><th>%</th><th>Amount</th></tr>
+            <tr><td>Presale</td><td>45%</td><td>450,000,000</td></tr>
+            <tr><td>Liquidity Pool</td><td>40%</td><td>400,000,000</td></tr>
+            <tr><td>Marketing</td><td>10%</td><td>100,000,000</td></tr>
+            <tr><td>Team</td><td>5%</td><td>50,000,000</td></tr>
+          </table>
+          <p class="note">Team allocation should ideally have vesting (e.g., 3 months).</p>
+        </div>
+
+        <div class="card cardPad">
+          <h3>Security & Trust Checklist</h3>
+          <ul class="miniText" style="margin:10px 0; padding-left:18px; line-height:1.75">
+            <li>Disable <b>Mint Authority</b> (no additional supply)</li>
+            <li>Disable <b>Freeze Authority</b> (no wallet freeze)</li>
+            <li><b>Liquidity Lock</b> after listing</li>
+            <li>Regular transparency updates</li>
+            <li>No ROI or guaranteed return claims</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <div class="sectionHead">
+        <div><h2>Roadmap</h2><p>Clear and realistic phases.</p></div>
+        <span class="tag">Execution-first</span>
+      </div>
+
+      <div class="cards">
+        <div class="card cardPad">
+          <div class="icon">1</div>
+          <h3>Phase 1 — Foundation</h3>
+          <p>Token deploy, branding, website launch, community building, Gempad presale setup.</p>
+        </div>
+        <div class="card cardPad">
+          <div class="icon">2</div>
+          <h3>Phase 2 — Growth</h3>
+          <p>Meme contests, community missions, micro-influencers, Dex listing.</p>
+        </div>
+        <div class="card cardPad">
+          <div class="icon">3</div>
+          <h3>Phase 3 — Transparency</h3>
+          <p>Regular updates on business activities, presale fund usage, and ecosystem expansion.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links">
+      <div class="sectionHead">
+        <div><h2>Official Links</h2><p>Replace placeholders with your actual links.</p></div>
+        <span class="tag">Copy & Paste</span>
+      </div>
+
+      <div class="card cardPad">
+        <table>
+          <tr><th>Channel</th><th>Link</th></tr>
+          <tr><td>Gempad Presale</td><td><a href="REPLACE_GEMPAD_PRESALE_LINK" target="_blank">REPLACE_GEMPAD_PRESALE_LINK</a></td></tr>
+          <tr><td>Telegram</td><td><a href="REPLACE_TELEGRAM_LINK" target="_blank">REPLACE_TELEGRAM_LINK</a></td></tr>
+          <tr><td>Twitter/X</td><td><a href="REPLACE_TWITTER_LINK" target="_blank">REPLACE_TWITTER_LINK</a></td></tr>
+          <tr><td>DexScreener</td><td><a href="REPLACE_DEXSCREENER_LINK" target="_blank">REPLACE_DEXSCREENER_LINK</a></td></tr>
+          <tr><td>Solscan</td><td><a href="REPLACE_SOLSCAN_LINK" target="_blank">REPLACE_SOLSCAN_LINK</a></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="sectionHead">
+        <div><h2>FAQ</h2><p>Common questions from global holders.</p></div>
+      </div>
+
+      <details open>
+        <summary>What is the softcap? Is it liquidity?</summary>
+        <p>Softcap is the <b>minimum amount</b> of SOL required for a successful presale.  
+        Softcap is <b>not</b> liquidity. Liquidity comes from <b>a portion of presale funds</b> + project tokens.</p>
+      </details>
+
+      <details>
+        <summary>Are profits or returns guaranteed?</summary>
+        <p>No. PYF does not guarantee any profit, yield, or fixed return. Crypto is high risk.</p>
+      </details>
+
+      <details>
+        <summary>How will presale funds be used?</summary>
+        <p>For liquidity, marketing, development, and productive business expansion.  
+        No revenue or ROI promises are allowed.</p>
+      </details>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> PrimeYield Fund (PYF). All rights reserved.<br/>
+      <span class="small">Disclaimer: This website is for informational purposes only and does not constitute financial advice.</span>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    async function copyMint(){
+      const el = document.getElementById('mint');
+      const val = (el.value || '').trim();
+      const status = document.getElementById('copyStatus');
+
+      if(!val){
+        status.textContent = "Please enter a Mint Address first.";
+        status.style.color = "#fb7185";
+        return;
+      }
+      try{
+        await navigator.clipboard.writeText(val);
+        status.textContent = "Mint Address copied successfully! ✅";
+        status.style.color = "#4ade80";
+      }catch(e){
+        el.select();
+        document.execCommand('copy');
+        status.textContent = "Mint Address copied successfully! ✅";
+        status.style.color = "#4ade80";
+      }
+    }
+  </script>
+
+</body>
+</html>
