@@ -221,6 +221,67 @@
       line-height:1.65;
       text-align:center;
     }
+
+    /* NEW: Proof & Reports */
+    .proofGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width:920px){.proofGrid{grid-template-columns:1fr}}
+    .proofItem{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.03);
+    }
+    .proofTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .proofTitle{
+      font-weight:900;
+      font-size:14px;
+      margin:0;
+    }
+    .proofMeta{
+      color:rgba(255,255,255,.62);
+      font-size:12px;
+      margin:0;
+      line-height:1.5;
+    }
+    .linkBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:800;
+      font-size:12px;
+    }
+    .linkBtn:hover{background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    .smallHint{
+      color: rgba(255,255,255,.62);
+      font-size:12px;
+      line-height:1.6;
+      margin:10px 0 0;
+    }
+    .codeInline{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px;
+      color: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      padding: 2px 6px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -234,6 +295,7 @@
         <a href="#presale">Presale</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="#hybrid-plan">Hybrid Plan</a>
+        <a href="#proof">Proof & Reports</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#faq">FAQ</a>
         <a class="btn primary" href="#links">Join</a>
@@ -409,87 +471,146 @@
       </div>
     </section>
 
-    <!-- MONTHLY HYBRID PLAN (USD VERSION) -->
-<section id="hybrid-plan">
-  <div class="sectionHead">
-    <div>
-      <h2>12-Month Hybrid Support Plan</h2>
-      <p>Additional monthly funding from real business operations to strengthen PYF’s market structure.</p>
-    </div>
-    <span class="tag">40% Buyback • 40% Liquidity • 20% Burn</span>
-  </div>
-
-  <div class="twoCol">
-    <!-- LEFT CARD -->
-    <div class="card cardPad">
-      <h3>Monthly Allocation (USD)</h3>
-      <table aria-label="Monthly Allocation">
-        <tr><th>Item</th><th>Amount</th></tr>
-        <tr><td>Monthly Injection</td><td><b>$18,750 / month</b></td></tr>
-        <tr><td>Duration</td><td><b>12 months</b></td></tr>
-        <tr><td>Total Annual Allocation</td><td><b>$225,000</b></td></tr>
-        <tr><td>Reference Conversion</td><td><span style="color:rgba(255,255,255,.70)">~ IDR 300,000,000 / month</span></td></tr>
-      </table>
-
-      <p class="note">
-        This plan is designed to support market stability and long-term growth.
-        It is <b>not</b> a profit-sharing program and does not promise fixed returns.
-      </p>
-    </div>
-
-    <!-- RIGHT CARD -->
-    <div class="card cardPad">
-      <h3>Hybrid Model Breakdown</h3>
-      <table aria-label="Hybrid Allocation Model">
-        <tr><th>Allocation</th><th>%</th><th>Details</th></tr>
-        <tr>
-          <td><b>Market Buyback</b></td>
-          <td><b>40%</b></td>
-          <td>Used to buy PYF from the open market to support demand and price discovery.</td>
-        </tr>
-        <tr>
-          <td><b>Liquidity Injection</b></td>
-          <td><b>40%</b></td>
-          <td>Add SOL + PYF into the liquidity pool to deepen liquidity and reduce volatility.</td>
-        </tr>
-        <tr>
-          <td><b>Token Burn</b></td>
-          <td><b>20%</b></td>
-          <td>Purchased tokens are permanently removed from circulation to reduce supply over time.</td>
-        </tr>
-      </table>
-
-      <div class="hr"></div>
-      <div class="note">
-        <b>Transparency Commitment:</b> Each month, buybacks, LP adds, and burns will be reported publicly with on-chain links (Solscan) whenever applicable.
+    <!-- HYBRID PLAN -->
+    <section id="hybrid-plan">
+      <div class="sectionHead">
+        <div>
+          <h2>12-Month Hybrid Support Plan</h2>
+          <p>Additional monthly funding from real business operations to strengthen PYF’s market structure.</p>
+        </div>
+        <span class="tag">40% Buyback • 40% Liquidity • 20% Burn</span>
       </div>
-    </div>
-  </div>
 
-  <div class="cards" style="margin-top:12px">
-    <div class="card cardPad">
-      <div class="icon">🔁</div>
-      <h3>Buyback</h3>
-      <p>Supports market demand and strengthens confidence through consistent monthly activity.</p>
-    </div>
-    <div class="card cardPad">
-      <div class="icon">💧</div>
-      <h3>Liquidity Growth</h3>
-      <p>Increases pool depth, lowers slippage, and improves chart stability over time.</p>
-    </div>
-    <div class="card cardPad">
-      <div class="icon">🔥</div>
-      <h3>Burn</h3>
-      <p>Reduces circulating supply monthly, reinforcing a deflationary long-term narrative.</p>
-    </div>
-  </div>
+      <div class="twoCol">
+        <div class="card cardPad">
+          <h3>Monthly Allocation (USD)</h3>
+          <table aria-label="Monthly Allocation">
+            <tr><th>Item</th><th>Amount</th></tr>
+            <tr><td>Monthly Injection</td><td><b>$18,750 / month</b></td></tr>
+            <tr><td>Duration</td><td><b>12 months</b></td></tr>
+            <tr><td>Total Annual Allocation</td><td><b>$225,000</b></td></tr>
+            <tr><td>Reference Conversion</td><td><span style="color:rgba(255,255,255,.70)">~ IDR 300,000,000 / month</span></td></tr>
+          </table>
 
-  <p class="note" style="margin-top:12px">
-    <b>Disclaimer:</b> This is a strategic framework and may be adjusted based on market conditions and operational needs.
-    No guaranteed profit, yield, or fixed returns are promised.
-  </p>
-</section>
+          <p class="note">
+            This plan is designed to support market stability and long-term growth.
+            It is <b>not</b> a profit-sharing program and does not promise fixed returns.
+          </p>
+        </div>
 
+        <div class="card cardPad">
+          <h3>Hybrid Model Breakdown</h3>
+          <table aria-label="Hybrid Allocation Model">
+            <tr><th>Allocation</th><th>%</th><th>Details</th></tr>
+            <tr>
+              <td><b>Market Buyback</b></td>
+              <td><b>40%</b></td>
+              <td>Used to buy PYF from the open market to support demand and price discovery.</td>
+            </tr>
+            <tr>
+              <td><b>Liquidity Injection</b></td>
+              <td><b>40%</b></td>
+              <td>Add SOL + PYF into the liquidity pool to deepen liquidity and reduce volatility.</td>
+            </tr>
+            <tr>
+              <td><b>Token Burn</b></td>
+              <td><b>20%</b></td>
+              <td>Purchased tokens are permanently removed from circulation to reduce supply over time.</td>
+            </tr>
+          </table>
+
+          <div class="hr"></div>
+          <div class="note">
+            <b>Transparency Commitment:</b> Each month, buybacks, LP adds, and burns will be reported publicly with on-chain links (Solscan) whenever applicable.
+          </div>
+        </div>
+      </div>
+
+      <div class="cards" style="margin-top:12px">
+        <div class="card cardPad">
+          <div class="icon">🔁</div>
+          <h3>Buyback</h3>
+          <p>Supports market demand and strengthens confidence through consistent monthly activity.</p>
+        </div>
+        <div class="card cardPad">
+          <div class="icon">💧</div>
+          <h3>Liquidity Growth</h3>
+          <p>Increases pool depth, lowers slippage, and improves chart stability over time.</p>
+        </div>
+        <div class="card cardPad">
+          <div class="icon">🔥</div>
+          <h3>Burn</h3>
+          <p>Reduces circulating supply monthly, reinforcing a deflationary long-term narrative.</p>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:12px">
+        <b>Disclaimer:</b> This is a strategic framework and may be adjusted based on market conditions and operational needs.
+        No guaranteed profit, yield, or fixed returns are promised.
+      </p>
+    </section>
+
+    <!-- PROOF & REPORTS -->
+    <section id="proof">
+      <div class="sectionHead">
+        <div>
+          <h2>Proof & Reports</h2>
+          <p>Monthly transparency updates with public on-chain links (Solscan) for buybacks, LP additions, and burns.</p>
+        </div>
+        <span class="tag">Public • Verifiable • On-chain</span>
+      </div>
+
+      <div class="card cardPad">
+        <h3>How to Verify</h3>
+        <p class="miniText">
+          We will publish a monthly report with Solscan transaction links for:
+          <b>Buyback</b>, <b>LP Add</b>, and <b>Burn</b>.
+          You can verify each action by opening the Solscan link and checking the transaction details.
+        </p>
+        <p class="smallHint">
+          Replace the placeholders below with your real links. Example labels used:
+          <span class="codeInline">MONTH 1</span>, <span class="codeInline">MONTH 2</span>, etc.
+        </p>
+
+        <div class="proofGrid">
+          <div class="proofItem">
+            <div class="proofTop">
+              <p class="proofTitle">Month 1 — Buyback</p>
+              <a class="linkBtn" href="REPLACE_SOLSCAN_BUYBACK_M1" target="_blank">Open Solscan</a>
+            </div>
+            <p class="proofMeta">Amount: $7,500 (40%) • Status: Pending</p>
+          </div>
+
+          <div class="proofItem">
+            <div class="proofTop">
+              <p class="proofTitle">Month 1 — LP Add</p>
+              <a class="linkBtn" href="REPLACE_SOLSCAN_LP_M1" target="_blank">Open Solscan</a>
+            </div>
+            <p class="proofMeta">Amount: $7,500 (40%) • Status: Pending</p>
+          </div>
+
+          <div class="proofItem">
+            <div class="proofTop">
+              <p class="proofTitle">Month 1 — Burn</p>
+              <a class="linkBtn" href="REPLACE_SOLSCAN_BURN_M1" target="_blank">Open Solscan</a>
+            </div>
+            <p class="proofMeta">Amount: $3,750 (20%) • Status: Pending</p>
+          </div>
+
+          <div class="proofItem">
+            <div class="proofTop">
+              <p class="proofTitle">Monthly Report (PDF / Post)</p>
+              <a class="linkBtn" href="REPLACE_MONTHLY_REPORT_LINK" target="_blank">Open Report</a>
+            </div>
+            <p class="proofMeta">Format: Notion / Google Doc / PDF • Updated monthly</p>
+          </div>
+        </div>
+
+        <p class="note" style="margin-top:12px">
+          Tip: You can also pin the latest monthly report in Telegram and link it here for maximum transparency.
+        </p>
+      </div>
+    </section>
 
     <!-- ROADMAP -->
     <section id="roadmap">
@@ -544,7 +665,7 @@
 
       <details open>
         <summary>What is the softcap? Is it liquidity?</summary>
-        <p>Softcap is the <b>minimum amount</b> of SOL required for a successful presale.  
+        <p>Softcap is the <b>minimum amount</b> of SOL required for a successful presale.<br/>
         Softcap is <b>not</b> liquidity. Liquidity comes from <b>a portion of presale funds</b> + project tokens.</p>
       </details>
 
@@ -555,7 +676,7 @@
 
       <details>
         <summary>How will presale funds be used?</summary>
-        <p>For liquidity, marketing, development, and productive business expansion.  
+        <p>For liquidity, marketing, development, and productive business expansion.<br/>
         No revenue or ROI promises are allowed.</p>
       </details>
 
