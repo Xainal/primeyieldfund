@@ -1,17 +1,6 @@
 {
   "name": "PrimeYieldFund",
   "symbol": "PYF",
-  "description": "PrimeYieldFund (PYF) is a community token on Solana.",
   "image": "https://raw.githubusercontent.com/Xainal/primeyieldfund/main/pyf.png",
-  "external_url": "https://github.com/Xainal/primeyieldfund",
-  "attributes": [],
-  "properties": {
-    "category": "image",
-    "files": [
-      {
-        "uri": "https://raw.githubusercontent.com/Xainal/primeyieldfund/main/pyf.png",
-        "type": "image/png"
-      }
-    ]
-  }
+  "description": "PrimeYieldFund (PYF) is a community token on Solana."
 }
